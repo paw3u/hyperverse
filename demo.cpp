@@ -1,18 +1,46 @@
 #include <SFML/Graphics.hpp>
 #include <linalg.hpp>
+#include <Vector4.hpp>
+#include <iostream>
 
-class Cam{
-public:
-    Cam();
-    ~Cam();
-    Vec *pos;
-    Mat *rot;
-    void set_pos(Vec *pos);
-};
+using namespace std;
+
+#define SCREEN_W 640
+#define SCREEN_H 480
+
+/* ------------------------------------------------ */
+
+//class Cam{
+//public:
+//    Cam();
+//    ~Cam();
+//    Vec *pos;
+//    Mat *rot;
+//    void set_pos(Vec *pos);
+//};
+
+/* ------------------------------------------------ */
+
+//class Triangle{
+//public:
+//    Triangle(const Vec &v0, const Vec &v1, const Vec &v2){
+//        for(int i=0; i<3; i++){
+//            vertex[i] = new Vec(v0.d);
+//            vertex[i] = new Vec(v0.d);
+//        }
+//    }
+//    ~Triangle(){
+//
+//    }
+//    int d;
+//    Vec v0, v1, v2;
+//};
+
+/* ------------------------------------------------ */
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "xD SFML works!");
+    sf::RenderWindow window(sf::VideoMode(SCREEN_W, SCREEN_H), "Hyperverse");
 
     Vec v(3, 1.0, 2.0, 3.0);
     Mat m(3, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0);
@@ -21,6 +49,9 @@ int main()
     v.matmul(&m);
     v.print();
 
+    Vector4 v4;
+    cout << v4.x << " " << v4.y << " " << v4.z << " " << v4.w << endl;
+ 
     // create an array of 3 vertices that define a triangle primitive
     sf::VertexArray triangle(sf::Triangles, 3);
 
